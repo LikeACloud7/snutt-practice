@@ -1,9 +1,10 @@
 import './reset.css';
+import './index.css';
 
 import { useState } from 'react';
 
-import { LoginPage } from './components/LoginPage';
-import { MyPage } from './components/MyPage';
+import { LoginPage } from './pages/LoginPage';
+import { MyPage } from './pages/MyPage';
 
 export const App = () => {
   const [token, setToken] = useState<string | null>(null);
