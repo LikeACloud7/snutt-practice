@@ -1,10 +1,9 @@
-export const LoginPage = ({
-  setToken,
-}: {
-  setToken: (token: string) => void;
-}) => {
+import { useNavigate } from 'react-router-dom';
+
+export const LoginPage = () => {
+  const navigate = useNavigate();
   const handleLogin = () => {
-    setToken('token');
+    navigate('/login');
   };
   return (
     <div className="flex flex-col items-center gap-[14.5rem] pb-[5.62519rem]">
