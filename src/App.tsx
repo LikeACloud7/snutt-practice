@@ -2,23 +2,21 @@ import './reset.css';
 import './index.css';
 
 import { useState } from 'react';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 import { LoginPage } from './pages/LoginPage';
 import { MyPage } from './pages/MyPage';
+import { SignInPage } from './pages/SignInPage';
 
 export const App = () => {
   const [token, setToken] = useState<string | null>(null);
 
-  if (token !== null) {
-    return (
-      <div>
-        <MyPage />
-      </div>
-    );
-  }
   return (
-    <div>
-      <LoginPage setToken={setToken} />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={token != null ? <MyPage /> : <LoginPage />} />
+        <Route path="/login" element={<SignInPage setToken={setToken} />} />
+      </Routes>
+    </BrowserRouter>
   );
 };
